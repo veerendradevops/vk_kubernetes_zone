@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    tier: frontend
+    app:  nginx
+  annotations:
+    description: Nginx pod with emptyDir volume type
+spec:
+  volumes:            # Define all the volumes available to your containers
+    - name: www-data  # Name the volume
+      emptyDir: {}    # Creates a shared Volume of type=emptyDir. It will exist as long as the Pod is running on the node.
+                      # It can persist data across container failures and restarts.
+                      # Data will not persist if the node dies and the pod moves to another node.
+                      # Typically two containers will be sharing this emptyDir Volume. One will be pulling files from
+                      # a remote Git location and the other will be serving the data. So even if the PoD moves, it will work
+  containers:
+    - name: nginx
+      image: nginx:1.13.8
+      volumeMounts:         # Mount volumes within a container using volumeMounts
+        - mountPath: /usr/share/nginx/html  # Mount path within the container
+          name: www-data                    # Name must match the volume name defined above in the Volumes section 
+      ports:
+        - containerPort: 80
+

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    tier: frontend
+    app: nginx
+  annotations:   # Annotations,like labels,are key/value maps.They are used by automation tooling,client libs & NOC
+    pod-url: http://mysite.com/nginx-pod    # URL containing detailed info about this Pod
+    supported-by: 1-888-222-1800    # Phone or pager number to reach those responsible for supporting this Pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.13.8
+      ports:
+        - containerPort: 80
+
