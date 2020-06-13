@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openmrs-pod
+  labels:
+    env: dev
+    app: opemrs-pod
+spec:
+  containers:
+  - name: opemnrs
+    image: veerendradevops/openmrs:2.1.2
+    ports:
+    - containerPort: 8080
