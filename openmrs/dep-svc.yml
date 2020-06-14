@@ -1,13 +1,13 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: openmrs-pod-svc
+  name:  openmrs
 spec:
   selector:
-    app: openmrs-pod
+    app:  openmrs
   type:  NodePort
   ports:
   - name:  http
     port:  8080
-    nodePort: 30001
+    nodePort: 30002
     protocol: TCP
