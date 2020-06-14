@@ -1,13 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  openmrs
+  name: openmrs
 spec:
   selector:
-    app:  openmrs
-  type:  NodePort
+    app: openmrs
+  type: NodePort
   ports:
-  - name:  http
-    port:  8080
-    nodePort: 30002
+  - name: http
+    port: 8080
+    nodePort: 30001
     protocol: TCP

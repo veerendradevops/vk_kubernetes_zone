@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: openmrs-deploy
+  name: gameoflife-deploy
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: openmrs
+      app: gol
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
@@ -16,10 +16,10 @@ spec:
   template:
     metadata:
       labels:
-        app: openmrs
+        app: gol
     spec:
       containers:
-      - name: openmrs
-        image: veerendradevops/openmrs:2.1.2
+      - name: gameoflife
+        image: veerendradevops/gol_tomcat
         ports:
         - containerPort: 8080

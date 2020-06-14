@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: openmrs-pod
+  name: gameoflife
   labels:
     env: dev
-    app: opemrs-pod
+    app: gol
 spec:
   containers:
-  - name: opemnrs
+  - name: gameoflife
     image: veerendradevops/gol_tomcat
     ports:
     - containerPort: 8080

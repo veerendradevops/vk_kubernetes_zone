@@ -1,13 +1,13 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: openmrs-pod-svc
+  name:  gameoflife
 spec:
   selector:
-    app: openmrs-pod
+    app:  gol
   type:  NodePort
   ports:
   - name:  http
     port:  8080
-    nodePort: 30002
+    nodePort: 30003
     protocol: TCP
